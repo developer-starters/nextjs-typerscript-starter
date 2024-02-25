@@ -16,12 +16,12 @@ export const getDataObjects = (async () => {
   return { data: temp,fields: fields } 
 })
 
-export const flattenObject = (obj:Object, parentKey?:string) => {
-  let result = {};
+export const flattenObject = (obj:any, parentKey?:string) => {
+  let result:any = {};
 
-  Object.keys(obj).forEach((key) => {
+  Object.keys(obj).forEach((key:string) => {
     const value = obj[key];
-    const _key = parentKey ? key : key;
+    const _key:string = parentKey ? key : key;
     if (typeof value === 'object') {
       result = { ...result, ...flattenObject(value, _key) };
     } else {
